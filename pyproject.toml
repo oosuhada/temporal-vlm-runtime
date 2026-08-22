@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "temporal-vlm-runtime"
+version = "0.1.0"
+description = "Structured temporal video understanding runtime built from Qwen3-VL video utilities with focused lmms-eval temporal validation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = [
+    "torch>=2.4",
+    "transformers>=4.57.0",
+    "accelerate>=1.0",
+]
+
+[project.scripts]
+temporal-vlm = "temporal_vlm_runtime.cli:main"
+
+[project.urls]
+homepage = "https://github.com/oosuhada/temporal-vlm-runtime"
+repository = "https://github.com/oosuhada/temporal-vlm-runtime"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["temporal_vlm_runtime*", "third_party*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
